@@ -6,4 +6,3 @@
 class Square:
     """ This class is empty """
     pass
-    
