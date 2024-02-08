@@ -12,8 +12,9 @@ Todo:
     raise ValueError if size is less that zero
 """
 
+
 class Square:
-     """
+    """
     Note:
         This class represente a Square objects
 
@@ -23,9 +24,8 @@ class Square:
     Args:
         size (int)
     """
-    
-        def __init__(self, size=0):
-             """
+    def __init__(self, size=0):
+        """
         Note:
             This methode initialize a square object
             It raises TypeError if size is not integer
