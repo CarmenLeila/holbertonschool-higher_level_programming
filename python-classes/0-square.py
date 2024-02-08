@@ -1,20 +1,9 @@
 #!/usr/bin/python3
 
-"""
-This module is Empty, it does nothing
-"""
+""" This module define a class called Square """
 
 
 class Square:
-    """
-    Note:
-        Nothing to do
-
-    Args:
-        no arguments
-
-    Attributes:
-        No Attributes
-    """
+    """ This class is empty """
     pass
     
