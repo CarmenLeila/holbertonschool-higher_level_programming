@@ -1,0 +1,34 @@
+#doctest_3_say_my_name.py
+
+>>> __import__('3-say_my_name').say_my_name("Mugisha", "Carmen ")
+My name is Mugisha Carmen
+>>> __import__('3-say_my_name').say_my_name("Mugisha")
+My name is Mugisha
+>>> __import__('3-say_my_name').say_my_name("", "")
+My name is
+>>> __import__('3-say_my_name').say_my_name("")
+My name is
+>>> try:
+...     __import__('3-say_my_name').say_my_name(6, "Carmen")
+... except Exception as e:
+...     print(e)
+...  
+first_name must be a string
+>>> try:
+...     __import__('3-say_my_name').say_my_name("Mugisha", 6)
+... except Exception as e:
+...     print(e)
+... 
+last_name must be a string
+>>> try:
+...     __import__('3-say_my_name').say_my_name(6)
+... except Exception as e:
+...     print(e)
+... 
+first_name must be a string
+>>> try:
+...     __import__('3-say_my_name').say_my_name()
+... except Exception as e:
+...     print("missing argument")
+... 
+missing argument
