@@ -1,6 +1,6 @@
 #doctest_3_say_my_name.py
 
->>> __import__('3-say_my_name').say_my_name("Mugisha", "Carmen ")
+>>> __import__('3-say_my_name').say_my_name("Mugisha", "Carmen")
 My name is Mugisha Carmen
 >>> __import__('3-say_my_name').say_my_name("Mugisha")
 My name is Mugisha
