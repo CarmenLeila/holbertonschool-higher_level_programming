@@ -1,1 +1,1 @@
-# holbertonschool-higher_level_programming
+It's a readme file for all directories in this repository

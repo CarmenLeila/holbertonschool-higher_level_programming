@@ -1,0 +1,125 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(0, 0)
+0
+>>> add_integer(2, 2)
+4
+>>> add_integer(2)
+100
+>>> add_integer(0)
+98
+>>> add_integer(-8, -8)
+-16
+>>> add_integer(-8, -12)
+-20
+>>> add_integer(-1, 8)
+7
+>>> add_integer(-8)
+90
+>>> add_integer(8.5, 7.5)
+15
+>>> add_integer(-8.5, -7.5)
+-15
+>>> add_integer(8.5, -7.5)
+1
+>>> add_integer(1, 8.5)
+9
+>>> add_integer(8.555)
+106
+>>> add_integer(0, 8.5)
+8
+>>> try:
+...     add_integer(__import__('math').inf, __import__('math').inf)
+... except Exception:
+...     print("Can't cast inf into int")
+... 
+Can't cast inf into int
+>>> try:
+...     add_integer(__import__('math').inf)
+... except Exception:
+...     print("Can't cast inf into int")
+... 
+Can't cast inf into int
+>>> try:
+...     add_integer("school", 8)
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer("school", -8)
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer("school", 0)
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer(8, "school")
+... except Exception as e:
+...     print(e)
+... 
+b must be an integer
+>>> try:
+...     add_integer(-8, "school")
+... except Exception as e:
+...     print(e)
+... 
+b must be an integer
+>>> try:
+...     add_integer(0, "school")
+... except Exception as e:
+...     print(e)
+... 
+b must be an integer
+>>> try:
+...     add_integer("holbie", "school")
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer("school", "school")
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer("school")
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer("")
+... except Exception as e:
+...     print(e)
+... 
+a must be an integer
+>>> try:
+...     add_integer()
+... except Exception as e:
+...     print(e)
+... 
+add_integer() missing 1 required positional argument: 'a'
+>>> add_integer(__import__('sys').maxsize, 0)
+9223372036854775807
+>>> add_integer(-(__import__('sys').maxsize - 1), 0)
+-9223372036854775806
+>>> try:
+...     add_integer(float('inf'), float('inf'))
+... except Exception:
+...     print("Can't cast inf into int")
+... 
+Can't cast inf into int
+>>> try:
+...     add_integer(float('inf'))
+... except Exception:
+...     print("Can't cast inf into int")
+... 
+Can't cast inf into int
