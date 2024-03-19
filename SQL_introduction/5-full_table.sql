@@ -1,3 +1,3 @@
---  description of the table first_table from from the database hbtn_0c_0
+-- description of the table first_table from from the database hbtn_0c_0
 
 SHOW CREATE TABLE first_table;
