@@ -1,7 +1,7 @@
 -- Creation of a table second_table in DB hbtn_0c_0
 
 CREATE TABLE IF NOT EXISTS second_table (
-    ind INT,
+    id INT,
     name VARCHAR(256),
     score INT
 );
