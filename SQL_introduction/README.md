@@ -1,4 +1,5 @@
 # SQL - Introduction
+
 ## Learning Objectives
 ### General
 
@@ -15,6 +16,7 @@
 * How to use MySQL functions
 
 ## Requirements
+
 ### General
 
 * Allowed editors: vi, vim, emacs
