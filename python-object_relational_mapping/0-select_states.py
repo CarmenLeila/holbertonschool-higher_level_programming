@@ -7,7 +7,7 @@ import sys
 
 if __name__ == "__main__":
     """establish a connection to the MySQLdb database"""
-    Myconnect = MySQLdb.connect(
+    myconnect = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=sys.argv[1],
@@ -17,9 +17,9 @@ if __name__ == "__main__":
     """calling the cursor method that will be used to execute SQL
     queries and fetch results from the database
     """
-    cursor = Myconnect.cursor()
+    cursor = myconnect.cursor()
     cursor.execute("SELECT * FROM states ORDER BY states.id")
     rows = cursor.fetchall()
     for row in rows:
         print(row)
-    Myconnect.close()
+    myconnect.close()
