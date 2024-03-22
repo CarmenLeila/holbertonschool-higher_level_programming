@@ -4,24 +4,43 @@
 import MySQLdb
 import sys
 
-
 if __name__ == "__main__":
-    """including the guard clause"""
+    """Connect to MySQL database and list all cities"""
 
-    """connection to the MySQLdb database"""
-    myconnect = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        password=sys.argv[2],
-        database=sys.argv[3])
+    # Check if correct number of arguments are provided
+    if len(sys.argv) != 4:
+        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
+        sys.exit(1)
 
+    # Connect to MySQL server
+    try:
+        myconnect = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            db=sys.argv[3])
+    except MySQLdb.Error as e:
+        print("Error connecting to MySQL database:", e)
+        sys.exit(1)
+
+    # Create cursor object
     cursor = myconnect.cursor()
-    query = "SELECT cities.id, cities.name, states.name FROM cities \
-             JOIN states ON cities.state_id = states.id \ 
-             ORDER BY cities.id ASC"
-    cursor.execute(query)
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+
+    # Execute SQL query to select all cities and order by id
+    try:
+        cursor.execute("SELECT * FROM cities ORDER BY id ASC")
+        cities = cursor.fetchall()
+    except MySQLdb.Error as e:
+        print("Error executing SQL query:", e)
+        cursor.close()
+        myconnect.close()
+        sys.exit(1)
+
+    # Display results
+    for city in cities:
+        print(city)
+
+    # Close cursor and connection
+    cursor.close()
     myconnect.close()
