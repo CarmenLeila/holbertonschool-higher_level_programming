@@ -2,7 +2,6 @@
 """ lists all State objects from the database hbtn_0e_6_usa """
 
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 import sys
@@ -18,5 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for states in session.query(State).order_by(State.id):
+    query = session.query(State).order_by(State.id).all()
+    session.close()
+    for state in query:
         print(f"{states.id}: {states.name}")
