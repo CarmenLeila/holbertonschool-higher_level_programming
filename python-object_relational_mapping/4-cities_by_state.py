@@ -17,9 +17,10 @@ if __name__ == "__main__":
         database=sys.argv[3])
 
     cursor = myconnect.cursor()
-    cursor.execute(
-        "SELECT cities.id, cities.name, states.name FROM cities INNER JOIN"
-        "states ON cities.state_id = states.id ORDER BY cities.id")
+    query = "SELECT cities.id, cities.name, states.name FROM cities \
+             JOIN states ON cities.state_id = states.id \ 
+             ORDER BY cities.id ASC"
+    cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
