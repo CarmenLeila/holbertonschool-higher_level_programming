@@ -32,21 +32,10 @@ class Student:
         if attrs is None:
             return self.__dict__
         else:
-            new_dictonary = {}
-
-            for attribute in attrs:
-                value = getattr(self, attribute, None)
-                if value is not None:
-                    new_dictonary[attribute] = value
-
-            return new_dictonary
+            return {attr: getattr(self, attr) for attr in attrs
+                    if hasattr(self, attr)}
         
     def reload_from_json(self, json):
-        """
-        replaces all attributes of the Student instance
-
-        Args:
-            json: dictionary
-        """
+        """ replaces all attributes of the Student instance """
         for key, value in json.items():
             setattr(self, key, value)
