@@ -25,7 +25,6 @@ class Student:
 
         Args:
         attrs: attribute names to check if his contained in the list
-
         Returns:
             the dictionary or the new dictionary
         """
