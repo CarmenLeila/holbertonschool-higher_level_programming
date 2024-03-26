@@ -21,7 +21,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """
-        Public method that retrieves a dictionary representation of a Student instance
+        Public method that retrieves a dictionary representation
 
         Args:
         attrs: attribute names to check if his contained in the list
@@ -31,9 +31,15 @@ class Student:
         if attrs is None:
             return self.__dict__
         else:
-            return {attr: getattr(self, attr) for attr in attrs
-                    if hasattr(self, attr)}
-        
+            new_dictonary = {}
+
+            for attribute in attrs:
+                value = getattr(self, attribute, None)
+                if value is not None:
+                    new_dictonary[attribute] = value
+
+            return new_dictonary
+
     def reload_from_json(self, json):
         """ replaces all attributes of the Student instance """
         for key, value in json.items():
