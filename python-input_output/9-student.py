@@ -21,6 +21,6 @@ class Student:
 
     def to_json(self):
         """
-        Public method that retrieves a dictionary representation of a Student isntance
+        Public method that retrieves a dictionary representation
         """
         return self.__dict__
