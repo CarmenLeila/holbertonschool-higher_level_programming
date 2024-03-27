@@ -21,7 +21,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """
-        Public method that retrieves a dictionary representation of a Student instance
+        Public method that retrieves a dictionary representation
 
         Args:
         attrs: attribute names to check if his contained in the list
