@@ -104,7 +104,7 @@ class TestSquare(unittest.TestCase):
             s = Square(1, -2)
             self.assertIsInstance(s, Square)
 
-    def test_constructor_with_width_height_and_negative_coordinates_exists(self):
+    def test_constructor_exists(self):
         """Test Square(1, 2, -3) exists."""
         with self.assertRaises(ValueError):
             s = Square(1, 2, -3)
@@ -157,10 +157,10 @@ class TestSquare(unittest.TestCase):
     def test_square_save_to_file_single_square(self):
         # Create an instance of Square for testing
         square = Square(1, 2, 3, 4)
-        
+
         # Save the Square instance to file
         Square.save_to_file([square])
-        
+
         # Check if the file exists
         self.assertTrue(os.path.exists("Square.json"))
 

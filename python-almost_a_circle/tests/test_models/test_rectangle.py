@@ -47,27 +47,27 @@ class TestRectangle(unittest.TestCase):
         # Test constructor with negative width
         with self.assertRaises(ValueError):
             Rectangle(-1, 2)
-        
+
         # Test constructor with negative height
         with self.assertRaises(ValueError):
             Rectangle(1, -2)
-        
+
         # Test constructor with zero width
         with self.assertRaises(ValueError):
             Rectangle(0, 2)
-        
+
         # Test constructor with zero height
         with self.assertRaises(ValueError):
             Rectangle(1, 0)
-        
+
         # Test constructor with negative x coordinate
         with self.assertRaises(ValueError):
             Rectangle(1, 2, -3)
-        
+
         # Test constructor with negative y coordinate
         with self.assertRaises(ValueError):
             Rectangle(1, 2, 3, -4)
-    
+
     def test_area(self):
         # Test area calculation
         rect = Rectangle(3, 4)
@@ -141,7 +141,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_rectangle_create_with_id_width_height_and_coordinates(self):
         # Test Rectangle.create() with id, width, height, and coordinates
-        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        rect = Rectangle.create(id=89, width=1, height=2, x=3, y=4)
         self.assertEqual(rect.id, 89)
         self.assertEqual(rect.width, 1)
         self.assertEqual(rect.height, 2)
@@ -169,16 +169,16 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_save_to_file_single_rectangle(self):
         # Create an instance of Rectangle for testing
         rect = Rectangle(1, 2, 3, 4, 99)
-        
+
         # Save the Rectangle instance to file
         Rectangle.save_to_file([rect])
-        
+
         # Check if the file exists
         self.assertTrue(os.path.exists("Rectangle.json"))
 
         # Check if the file content matches the expected JSON string
         with open("Rectangle.json", "r") as file:
-            expected_output = '[{"id": 99, "x": 3, "y": 4, "width": 1, "height": 2}]'
+            expected_output = '( id=89, width=1, height=2, x=3, y=4)'
             self.assertEqual(file.read(), expected_output)
 
     def test_rectangle_load_from_file_existing_file(self):
@@ -205,6 +205,7 @@ class TestRectangle(unittest.TestCase):
             os.remove("Rectangle.json")
         except FileNotFoundError:
             pass
+
 
 if __name__ == "__main__":
     unittest.main()
